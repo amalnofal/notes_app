@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
-import 'package:notes_app/widgets/custom_notes_item.dart';
+import 'package:notes_app/widgets/notes_list_view.dart';
 
 class NotesViewBody extends StatelessWidget {
   const NotesViewBody({super.key});
@@ -12,10 +12,8 @@ class NotesViewBody extends StatelessWidget {
       child: Column(
         children: const [
           CustomAppBar(),
-          CustomNotesItem(
-            title: "Flutter tips",
-            subTitle: "Build your Career with Tharwat Samy",
-          ),
+          SizedBox(height: 12),
+          Expanded(child: NotesListView()),
         ],
       ),
     );

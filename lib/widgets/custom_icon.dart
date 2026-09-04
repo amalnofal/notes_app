@@ -4,6 +4,7 @@ class CustomIcon extends StatelessWidget {
   final IconData icon;
   final void Function()? onTap;
   final Color backgroundColor;
+  final Color iconColor;
   final double size;
   final double iconSize;
   final double borderRadius;
@@ -13,8 +14,9 @@ class CustomIcon extends StatelessWidget {
     required this.icon,
     this.onTap,
     this.backgroundColor = const Color(0x0FFFFFFF),
-    this.size = 45,
-    this.iconSize = 24,
+    this.iconColor = const Color(0xCCFFFFFF),
+    this.size = 40,
+    this.iconSize = 20,
     this.borderRadius = 16,
   });
 
@@ -31,7 +33,7 @@ class CustomIcon extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: Center(
-          child: Icon(icon, size: iconSize, color: Colors.white),
+          child: Icon(icon, size: iconSize, color: iconColor),
         ),
       ),
     );

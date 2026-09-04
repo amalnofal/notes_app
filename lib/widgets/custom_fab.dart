@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/widgets/add_note_bottom_sheet.dart';
 
 class CustomFab extends StatelessWidget {
   const CustomFab({super.key});
@@ -6,7 +7,16 @@ class CustomFab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          builder: (context) {
+            return const AddNoteBottomSheet();
+          },
+        );
+      },
       child: Container(
         width: 56,
         height: 56,

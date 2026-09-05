@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/custom_button.dart';
-import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:notes_app/widgets/add_note_form.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
@@ -21,44 +20,7 @@ class AddNoteBottomSheet extends StatelessWidget {
           width: 1.5,
         ),
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Container(
-                width: 40,
-                height: 4,
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.2),
-                  borderRadius: BorderRadius.circular(4),
-                ),
-              ),
-            ),
-            const SizedBox(height: 24),
-
-            Text(
-              'NEW NOTE',
-              style: TextStyle(
-                color: Colors.white.withValues(alpha: 0.4),
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            const SizedBox(height: 16),
-
-            const CustomTextField(hintText: "Title"),
-            const SizedBox(height: 16),
-
-            const CustomTextField(hintText: "Content", maxLines: 5),
-            const SizedBox(height: 22),
-
-            const CustomButton(title: "Add"),
-            SizedBox(height: 16 + MediaQuery.of(context).viewInsets.bottom),
-          ],
-        ),
-      ),
+      child: const SingleChildScrollView(child: AddNoteForm()),
     );
   }
 }

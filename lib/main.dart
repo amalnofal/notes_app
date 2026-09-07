@@ -13,7 +13,7 @@ void main() async {
   await Hive.initFlutter();
 
   Hive.registerAdapter(NoteModelAdapter());
-  await Hive.openBox("notes_box");
+  await Hive.openBox<NoteModel>("notes_box");
 
   runApp(const NotesApp());
 }

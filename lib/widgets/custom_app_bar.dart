@@ -9,6 +9,7 @@ class CustomAppBar extends StatelessWidget {
   final bool showBackButton;
   final Color? trailingIconColor;
   final Color? trailingIconBgColor;
+  final void Function()? onTap;
 
   const CustomAppBar({
     super.key,
@@ -19,6 +20,7 @@ class CustomAppBar extends StatelessWidget {
     this.showBackButton = false,
     this.trailingIconColor,
     this.trailingIconBgColor,
+    this.onTap,
   });
 
   @override
@@ -59,6 +61,7 @@ class CustomAppBar extends StatelessWidget {
           icon: icon,
           iconColor: trailingIconColor ?? Colors.white,
           backgroundColor: trailingIconBgColor ?? const Color(0x0FFFFFFF),
+          onTap: onTap,
         ),
       ],
     );

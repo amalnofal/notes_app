@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/views/search_view.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
 import 'package:notes_app/widgets/notes_list_view.dart';
 
@@ -12,25 +13,32 @@ class NotesViewBody extends StatefulWidget {
 }
 
 class _NotesViewBodyState extends State<NotesViewBody> {
-   @override
+  @override
   void initState() {
-   BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       child: Column(
-        children: const [
+        children: [
           CustomAppBar(
             title: 'Notes',
             titleSize: 30,
             subtitle: "MY WORKSPACE",
             icon: Icons.search,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SearchView()),
+              );
+            },
           ),
-          SizedBox(height: 12),
-          Expanded(child: NotesListView()),
+          const SizedBox(height: 12),
+          const Expanded(child: NotesListView()),
         ],
       ),
     );
